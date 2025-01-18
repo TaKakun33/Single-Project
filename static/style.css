@@ -1,16 +1,18 @@
 body{
-    margin: 0;
+    margin: auto;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    place-items: center;
+    width: 100vw;
     height: 100vh;
 }
 
-header{
+.header{
     text-align: center;
-    width: 100%;
-    height: 30px;;   
+    width: 70%;
+    height: 30px;   
+    padding: 10px;
+    margin: 20px;
 }
 
 a {
@@ -18,29 +20,38 @@ a {
     color: inherit; 
 }
 
+p{
+    margin: 5;
+}
+
+
 h1{
     font-size: 40px;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
 }
+
 
 .container{
     display: flex;
-    width: 100%;
-    height: 350PX;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    width: 100%;
+    height: 70%;
+    align-items: center;
 }
 
 .wrapper{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    width:65%;
-    height:65%;
     padding: 50px;
 }
 
 .card{
+    display: grid;
+    place-items: center;
     background-color: white;
     border: 2px,solid,black;
     padding: 32px;
@@ -48,12 +59,13 @@ h1{
     text-align: center;
     font-family: "Silkscreen", serif;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-    width: 40%;
-    height: 30%;
+    width: 200px;
+    height: 80px;
 }
 
-.text{
+p.text{
     width: 100%;
+    margin: 0%;
 }
 .icons{
     font-size: 24px;
