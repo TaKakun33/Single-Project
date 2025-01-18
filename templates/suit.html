@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suit</title>
+</head>
+<body>
+    <h1>Suit Game</h1>
+    <h3>PILIH SALAH SATU</h3>
+    <form action="/suit" method="POST">
+            <button type = "submit" name="button_id" value="1" >Gunting</button>
+            <button type = "submit" name="button_id" value="2" >Batu</button>
+            <button type = "submit" name="button_id" value="3" >Kertas</button> 
+    </form>
+    {% if hasil is not none %}
+        <p>Player : {{player}} </p>
+        <p>Robot : {{robot}} </p>
+        <p>{{hasil}} </p>
+    {% endif %}
+    <br> <a href="/">BACK</a>
+</body>
+</html>

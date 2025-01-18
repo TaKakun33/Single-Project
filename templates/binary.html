@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Calc</title>
+</head>
+<body>
+    <h1>Binary Calculator</h1>
+    <form action="/binary" method = "POST">
+        <input type="text" name = "Num_Input">
+        <div>
+            <select name="select_id1">
+                <option value="Binary">Binary</option>
+                <option value="Decimal">Decimal</option>
+                <option value="Octal">Octal</option>
+                <option value="Hexadecimal">Hexadecimal</option>
+            </select>
+            <select name="select_id2">
+                <option value="Binary">Binary</option>
+                <option value="Decimal">Decimal</option>
+                <option value="Octal">Octal</option>
+                <option value="Hexadecimal">Hexadecimal</option>
+            </select>
+        </div>
+        <button type="submit" >Submit</button>
+    </form>
+
+    {% if output is not none %}
+        <p> {{first}} : {{input}} </p>
+        <p> {{last}}  : {{output}} </p>
+    {% endif %}
+
+    {% if eror is not none %}
+        <p> INPUT SALAH! </p>
+        <p> Silahkan Masukan Input Yang Benar! </p>
+    {% endif %}
+    <br> <a href="/">BACK</a>
+</body>
+</html>

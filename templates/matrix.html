@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix</title>
+</head>
+<body>
+    <h1>Matrix</h1>
+    
+    {% if dimensi == '2' %}
+    <form action="/matrix" method = "POST">
+        <H3>Matrix x2</H3>
+        <input type="number" name = "a1">
+        <input type="number" name = "a2"><br>
+        <input type="number" name = "b1">
+        <input type="number" name = "b2"><br>
+        <button type="submit" name="type_button" value="rank_2">Rank</button>
+        <button type="submit" name="type_button" value="determinant_2">determinant</button>
+    </form>
+    {% endif %}
+
+    {% if dimensi == '3' %}
+    <form action="/matrix" method = "POST">
+        <H3>Matrix x3</H3>
+        <input type="number" name = "a1">
+        <input type="number" name = "a2">
+        <input type="number" name = "a3"><br>
+        <input type="number" name = "b1">
+        <input type="number" name = "b2">
+        <input type="number" name = "b3"><br>
+        <input type="number" name = "c1">
+        <input type="number" name = "c2">
+        <input type="number" name = "c3"><br>
+        <button type="submit" name="type_button" value="rank_3">Rank</button>
+        <button type="submit" name="type_button" value="determinant_3">determinant</button>
+    </form>
+    {% endif %}
+
+    {% if dimensi == '4' %}
+    <form action="/matrix" method = "POST">
+        <H3>Matrix x4</H3>
+        <input type="number" name = "a1">
+        <input type="number" name = "a2">
+        <input type="number" name = "a3">
+        <input type="number" name = "a4"><br>
+        <input type="number" name = "b1">
+        <input type="number" name = "b2">
+        <input type="number" name = "b3">
+        <input type="number" name = "b4"><br>
+        <input type="number" name = "c1">
+        <input type="number" name = "c2">
+        <input type="number" name = "c3">
+        <input type="number" name = "c4"><br>
+        <input type="number" name = "d1">
+        <input type="number" name = "d2">
+        <input type="number" name = "d3">
+        <input type="number" name = "d4"><br>
+        <button type="submit" name="type_button" value="rank_4">Rank</button>
+        <button type="submit" name="type_button" value="determinant_4">determinant</button>
+    </form>
+    {% endif %}
+    
+    {% if output_rank is not none %}
+    <p>Rank : {{output_rank}} </p>
+    {% endif %}
+
+    {% if output_determinant is not none %}
+        <p>determinant {{output_determinant}} </p>
+    {% endif %}
+    
+    <form action="/matrix" method="POST" >
+        <H4>Dimensi Matrix</H4>
+        <button type="submit" name="type_button" value="dimention_2">2 X 2</button>
+        <button type="submit" name="type_button" value="dimention_3">3 X 3</button>
+        <button type="submit" name="type_button" value="dimention_4">4 X 4</button>
+    </form>
+
+    <br> <a href="/">BACK</a>
+</body>
+</html>

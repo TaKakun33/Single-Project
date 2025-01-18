@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert term</title>
+</head>
+<body>
+    <h1>Konvensi Suhu</h1>
+    <form action="/suhu" method = "POST">
+        <input type="number" name = "Num_Input">
+        <div>
+            <select name="select_id1">
+                <option value="C">Celsius</option>
+                <option value="F">Fahranheit</option>
+                <option value="K">Kelvin</option>
+                <option value="Re">Reamur</option>
+            </select>
+            <select name="select_id2">
+                <option value="C">Celsius</option>
+                <option value="F">Fahranheit</option>
+                <option value="K">Kelvin</option>
+                <option value="Re">Reamur</option>
+            </select>
+        </div>
+        <button type="submit" >Submit</button>
+    </form>
+
+    {% if hasil is not none %}
+        <p> Suhu akhir : {{masukan}} °{{suhu_awal}} </p>
+        <p> Suhu Awal : {{hasil}} °{{suhu_akhir}} </p>
+    {% endif %}
+
+    {% if eror is not none %}
+        <p> INPUT SALAH! </p>
+        <p> Silahkan Masukan Input Yang Benar! </p>
+    {% endif %}
+
+    <br> <a href="/">BACK</a>
+</body>
+</html>

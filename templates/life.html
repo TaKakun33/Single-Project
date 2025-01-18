@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Calc</title>
+</head>
+<body>
+    <h1>Life Calculator</h1>
+    <form action = "\life", method = "POST">
+
+        <label>Umur Kamu :</label>
+            <input type="number" name="age"><br>
+        <label>Tinggi Kamu : </label>
+            <input type="number" name="hight"><br>
+        <label>Berat Kamu :</label>
+            <input type="number" name="weight"><br>
+        <div>
+            <label> Jenis Kelamin</label>
+            <select name="select_id">
+                <option value="l">Laki-Laki</option>
+                <option value="p">Perempuan</option>
+            </select>
+        </div>
+        <button type="submit">submit</button>
+    </form>
+    {% if hasil is not none %}
+        <p> Umur : {{output_age}}</p>
+        <p> Tinggi : {{output_hight}}</p>
+        <p> Berat : {{output_weight}}</p>
+        <p> Rekomendasi kalori per hari : {{output_calori}} Kkal</p>
+        <p> Rekomendasi berat : {{output_ideal}} Kg</p>
+        <p> Indeks Masa Tubuh : {{output_imt}}</p>
+        <p> Kategori Tubuh : {{hasil}}</p>
+    {% endif %}
+
+    
+    {% if eror is not none %}
+        <p> INPUT SALAH! </p>
+        <p> Silahkan Masukan Input Yang Benar! </p>
+    {% endif %}
+    <br> <a href="/">BACK</a>
+</body>
+</html>
