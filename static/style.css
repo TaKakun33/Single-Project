@@ -7,31 +7,38 @@ body{
     height: 100vh;
 }
 
+
 .header{
     text-align: center;
     width: 70%;
-    height: 30px;   
+    height: 50px;   
     padding: 10px;
     margin: 20px;
 }
 
-a {
-    text-decoration: none; 
-    color: inherit; 
+.title{
+    font-family: "Silkscreen", serif;
+    font-size: 50px;
+    margin: 20px;
 }
 
-p{
+.title-home{
+    font-size: 40px;
+    font-family: "Playwrite VN", serif;
+    margin: 0;
+    padding: 0;
+}
+
+.made{
     margin: 5px;
     font-family: "Macondo", serif;
     font-size: 15px;
 }
 
 
-h1{
-    font-size: 40px;
-    font-family: "Playwrite VN", serif;
-    margin: 0;
-    padding: 0;
+a {
+    text-decoration: none; 
+    color: inherit; 
 }
 
 
@@ -53,6 +60,34 @@ h1{
     margin-top: 50px;
 }
 
+.form-suit{
+    margin: 10px;
+    display: flex;
+}
+
+.button-suit{
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin: 8px;
+    padding: 20px;
+    width: 150px;
+    height:90px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border: 2px,solid,black;
+    background-color: white;
+}
+
+.button-suit:hover{
+    background-color: black;
+    .text-suit{
+        color: white;
+    }
+    .icons-suit{
+        color: white;
+    }
+}
+
 .card{
     display: grid;
     place-items: center;
@@ -66,15 +101,6 @@ h1{
     height: 80px;
 }
 
-p.text{
-    font-family: "Silkscreen", serif;
-    width: 100%;
-    margin: 0%;
-}
-.icons{
-    font-size: 24px;
-}
-
 .card:hover{
     background-color: black;
     .text{
@@ -85,15 +111,52 @@ p.text{
     }
 }
 
+.text{
+    font-family: "Silkscreen", serif;
+    width: 100%;
+    margin: 0%;
+}
+
+.text-suit{
+    font-family: "Inter", serif;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+}
+
+.icons{
+    font-size: 24px;
+}
+
+.icons-suit{
+    font-size: 24px;
+}
+
 @media screen and (max-width: 666px) {
     .header{
         height: 10px;
     }
-    h1{
+    .title{
+        font-size: 35px;
+    }
+    h3{
+        font-size: 15px;
+    }
+    .title-home{
         font-size: 25px;
     }
-    p{
+    .made{
         font-size: 12px;
+    }
+    .button-suit{
+        height: 70px;
+        width: 80px;
+        padding: 15px;
+    }
+    .wrapper{
+        margin-top: 5px;
     }
     .card{
         display: flex;
@@ -102,7 +165,10 @@ p.text{
     .text{
         font-size: 70%;
     }
-    .wrapper{
-        margin-top: 5px;
+    .text-suit{
+        height: 20%;
+    }
+    .icons-suit{
+        font-size: 17px;
     }
 }

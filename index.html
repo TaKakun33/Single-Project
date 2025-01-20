@@ -1,53 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Suit</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="/img/pngwing.com (1).png" type="image/x-icon">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Lonely Project</h1>
-            <p>By : Akmal Kafli Anan</p>
-            <br>
-        </div>
-        <div class="wrapper">
-            <a href="/suit" class="card">
-                <i class="fa-solid fa-hand-back-fist icons"></i>
-                <p class="text">SUIT</p></a>
-            <a href="/suhu" class="card">
-                <i class="fa-solid fa-temperature-quarter icons"></i>
-                <p class="text">TEMP CONVERSION</p>
-            </a>
-            <a href="/life" class="card">
-                <i class="fa-solid fa-weight-scale icons"></i>
-                <p class="text">LIFE CALCULATOR</p>
-            </a>
-            <a href="/binary" class="card">
-                <i class="fa-solid fa-square-binary icons"></i>
-                <p class="text">BINARY CONVERSION</p>
-            </a>
-            <a href="/matrix" class="card">
-                <i class="fa-solid fa-calculator icons"></i>
-                <p class="text">MATRIX</p>
-            </a>
+        <h1 class="title">Suit Game</h1>
+        <h3>PILIH SALAH SATU!</h3>
+            <form action="/suit" method="POST" class="form-suit">
+                    <button type = "submit" name="button_id" value="1" class="button-suit">
+                        <i class="fa-solid fa-hand-peace icons-suit"></i>
+                        <p class="text-suit">Gunting</p>
+                    </button>
+                    <button type = "submit" name="button_id" value="2" class="button-suit">
+                        <i class="fa-solid fa-hand-back-fist icons-suit"></i>
+                        <p class="text-suit">Batu</p>
+                    </button>
+                    <button type = "submit" name="button_id" value="3" class="button-suit">
+                        <i class="fa-solid fa-hand icons-suit"></i>
+                        <p class="text-suit">Kertas</p>
+                    </button> 
+            </form>
 
-        </div>
-    </div>
-
+            {% if hasil is not none %}
+                <p>Player : {{player}} </p>
+                <p>Robot : {{robot}} </p>
+                <p>{{hasil}} </p>
+            {% endif %}
+            
+        <br> <a href="/">BACK</a>
+    </div>    
 </body>
 </html>
