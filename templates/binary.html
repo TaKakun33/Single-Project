@@ -3,38 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binary Calc</title>
+    <title>Convert term</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+    <div class="container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <h1>Binary Calculator</h1>
-    <form action="/binary" method = "POST">
-        <input type="text" name = "Num_Input">
-        <div>
-            <select name="select_id1">
-                <option value="Binary">Binary</option>
-                <option value="Decimal">Decimal</option>
-                <option value="Octal">Octal</option>
-                <option value="Hexadecimal">Hexadecimal</option>
-            </select>
-            <select name="select_id2">
-                <option value="Binary">Binary</option>
-                <option value="Decimal">Decimal</option>
-                <option value="Octal">Octal</option>
-                <option value="Hexadecimal">Hexadecimal</option>
-            </select>
-        </div>
-        <button type="submit" >Submit</button>
-    </form>
+    <div class="container">
+        <h1 class="title">Binary</h1>
+        <h1 class="title">Calculator</h1>
+        <h3>Please Enter The Input!</h3>
+        <form action="/binary" method = "POST" class="form-suhu">
+            <input type="text" name = "Num_Input" class="input" required>
+            <div class="container-select">
+                <div class="wrapper-select">
+                    <LABel>from :</LABel>
+                    <select name="select_id1" class="select">
+                        <option value="Binary">Binary</option>
+                        <option value="Decimal">Decimal</option>
+                        <option value="Octal">Octal</option>
+                        <option value="Hexadecimal">Hexadecimal</option>
+                    </select>
+                </div>
+                <div class="wrapper-select">
+                    <LABel>to :</LABel>
+                    <select name="select_id2" class="select">
+                        <option value="Binary">Binary</option>
+                        <option value="Decimal">Decimal</option>
+                        <option value="Octal">Octal</option>
+                        <option value="Hexadecimal">Hexadecimal</option>
+                    </select>                    
+                </div>
 
-    {% if output is not none %}
-        <p> {{first}} : {{input}} </p>
-        <p> {{last}}  : {{output}} </p>
-    {% endif %}
+            </div>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    
+        {% if output is not none %}
+        <script>
+            Swal.fire({
+               html: '<div class="container-swal-html"><p class ="text-swal" > {{first}} : {{input}} </p> <i class="fa-solid fa-arrow-down-long" id="down-arrow"></i> <p class ="text-swal" > {{last}}  : {{output}} </p></div>',
+               iconHtml: '<i class="fa-regular fa-circle-check"></i>',
+               title:'Success',
+               confirmButtonText: "Ok",
+                   customClass: {
+                       confirmButton: "custom-confirm-button" 
+                   }
+             });
+             document.body.classList.remove('swal2-height-auto')
+           </script>
+           {% endif %}
+           
+           {% if eror is not none %}
+           <script>
+               Swal.fire({
+                  html: '<p class ="text-swal" > Please enter the correct input! </p></div>',
+                  iconHtml: '<i class="fa-regular fa-circle-xmark"></i>',
+                  title:'Wrong Input!',
+                  confirmButtonText: "Ok",
+                      customClass: {
+                          confirmButton: "custom-confirm-button" 
+                      }
+                });
+                document.body.classList.remove('swal2-height-auto')
+              </script>
+        {% endif %}
+        <br> <a href="/" class="back">BACK</a>
+    </div>
 
-    {% if eror is not none %}
-        <p> INPUT SALAH! </p>
-        <p> Silahkan Masukan Input Yang Benar! </p>
-    {% endif %}
-    <br> <a href="/">BACK</a>
 </body>
 </html>

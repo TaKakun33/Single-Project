@@ -3,42 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Life Calc</title>
 </head>
 <body>
-    <h1>Life Calculator</h1>
-    <form action = "\life", method = "POST">
-
-        <label>Umur Kamu :</label>
-            <input type="number" name="age"><br>
-        <label>Tinggi Kamu : </label>
-            <input type="number" name="hight"><br>
-        <label>Berat Kamu :</label>
-            <input type="number" name="weight"><br>
-        <div>
-            <label> Jenis Kelamin</label>
-            <select name="select_id">
-                <option value="l">Laki-Laki</option>
-                <option value="p">Perempuan</option>
-            </select>
-        </div>
-        <button type="submit">submit</button>
-    </form>
-    {% if hasil is not none %}
-        <p> Umur : {{output_age}}</p>
-        <p> Tinggi : {{output_hight}}</p>
-        <p> Berat : {{output_weight}}</p>
-        <p> Rekomendasi kalori per hari : {{output_calori}} Kkal</p>
-        <p> Rekomendasi berat : {{output_ideal}} Kg</p>
-        <p> Indeks Masa Tubuh : {{output_imt}}</p>
-        <p> Kategori Tubuh : {{hasil}}</p>
-    {% endif %}
-
-    
+    <div class="container">
+        <h1 class="title">Life</h1>
+        <h1 class="title">Calculator</h1>
+        <h3>Please Enter The Input!</h3>
+        <form action = "\life", method = "POST" class="form-suhu">
+            <div class="container-life">
+                <div class="wrapper-life">
+                    <label class="label-life">Your Age :</label>
+                        <input class="input" type="number" name="age" required><br>
+                </div>
+                <div class="wrapper-life">
+                    <label class="label-life">Your Tall : </label>
+                        <input class="input" type="number" name="hight"  step="any" required><br>
+                </div>
+                <div class="wrapper-life">
+                    <label class="label-life">Your Weight :</label>
+                        <input class="input" type="number" name="weight"  step="any" required><br>
+                </div>
+                <div class="wrapper-life">
+                    <label class="label-life"> Your Gander :</label>
+                    <select name="select_id" class="select-gender">
+                        <option value="l">Male</option>
+                        <option value="p">Female</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+        <br> <a href="/" class="back">BACK</a>
+    </div>
+    {% if output_Category is not none %}
+    <script>
+        Swal.fire({
+           html: '<div class="container-swal-html">'+
+            '<p class="text-swal-life"> Age : {{output_age}}</p>'+
+            '<p class="text-swal-life"> Tall : {{output_hight}}</p>'+
+            '<p class="text-swal-life"> Weight : {{output_weight}}</p>'+
+            '<p class="text-swal-life"> Recommended calories per day : {{output_calori}} Kkal</p>'+
+            '<p class="text-swal-life"> Heavy recommendation : {{output_ideal}} Kg</p>'+
+            '<p class="text-swal-life"> Body Mass Index : {{output_imt}}</p>'+
+            '<p class="text-swal-life"> Body Category : {{output_Category}}</p></div>',
+           iconHtml: '<i class="fa-regular fa-circle-check"></i>',
+           title:'Success',
+           confirmButtonText: "Ok",
+               customClass: {
+                   confirmButton: "custom-confirm-button" 
+               }
+         });
+         document.body.classList.remove('swal2-height-auto')
+        </script>
+    {% endif %} 
+   
     {% if eror is not none %}
-        <p> INPUT SALAH! </p>
-        <p> Silahkan Masukan Input Yang Benar! </p>
-    {% endif %}
-    <br> <a href="/">BACK</a>
+    <script>
+        Swal.fire({
+           html: '<p class ="text-swal" > Please enter the correct input! </p></div>',
+           iconHtml: '<i class="fa-regular fa-circle-xmark"></i>',
+           title:'Wrong Input!',
+           confirmButtonText: "Ok",
+               customClass: {
+                   confirmButton: "custom-confirm-button" 
+               }
+         });
+         document.body.classList.remove('swal2-height-auto')
+    </script>
+     {% endif %}
 </body>
 </html>

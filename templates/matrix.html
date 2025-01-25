@@ -3,79 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix</title>
+    <title>Matrix Calc</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
 </head>
 <body>
-    <h1>Matrix</h1>
+    <div class="container">
+        <h1 class="title">Matrix</h1>
+        <h1 class="title">Calculator</h1>
+        <h3>Please Enter The Input!</h3>
+        
+        {% if dimensi == '2' %}
+        <form action="/matrix" method = "POST" class="form-life">
+            <div class="wrapper-matrix2">
+                <input type="number" name = "a1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "a2" class="input" id="input-matrix"  step="any" required><br>
+                <input type="number" name = "b1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "b2" class="input" id="input-matrix"  step="any" required><br>
+            </div>
+            <div class="button-container">
+                <div class="button-wrapper">
+                    <button type="submit" name="type_button" value="rank_2" class="submit">Rank</button>
+                </div>
+                <div class="button-wrapper">
+                    <button type="submit" name="type_button" value="determinant_2" class="submit">determinant</button>
+                </div>
+            </div>
+        </form>
+        <form action="/matrix" method="POST" class="form-dimension">
+            <H4>Dimensions :</H4>
+            <button type="submit" name="type_button" value="dimension_2" class="button-demension" id="dummy-button" disabled>2 X 2</button>
+            <button type="submit" name="type_button" value="dimension_3" class="button-demension">3 X 3</button>
+            <button type="submit" name="type_button" value="dimension_4" class="button-demension">4 X 4</button>
+        </form>
+                
+        <br> <a href="/" class="back">BACK</a>
+        {% endif %}
     
-    {% if dimensi == '2' %}
-    <form action="/matrix" method = "POST">
-        <H3>Matrix x2</H3>
-        <input type="number" name = "a1">
-        <input type="number" name = "a2"><br>
-        <input type="number" name = "b1">
-        <input type="number" name = "b2"><br>
-        <button type="submit" name="type_button" value="rank_2">Rank</button>
-        <button type="submit" name="type_button" value="determinant_2">determinant</button>
-    </form>
-    {% endif %}
-
-    {% if dimensi == '3' %}
-    <form action="/matrix" method = "POST">
-        <H3>Matrix x3</H3>
-        <input type="number" name = "a1">
-        <input type="number" name = "a2">
-        <input type="number" name = "a3"><br>
-        <input type="number" name = "b1">
-        <input type="number" name = "b2">
-        <input type="number" name = "b3"><br>
-        <input type="number" name = "c1">
-        <input type="number" name = "c2">
-        <input type="number" name = "c3"><br>
-        <button type="submit" name="type_button" value="rank_3">Rank</button>
-        <button type="submit" name="type_button" value="determinant_3">determinant</button>
-    </form>
-    {% endif %}
-
-    {% if dimensi == '4' %}
-    <form action="/matrix" method = "POST">
-        <H3>Matrix x4</H3>
-        <input type="number" name = "a1">
-        <input type="number" name = "a2">
-        <input type="number" name = "a3">
-        <input type="number" name = "a4"><br>
-        <input type="number" name = "b1">
-        <input type="number" name = "b2">
-        <input type="number" name = "b3">
-        <input type="number" name = "b4"><br>
-        <input type="number" name = "c1">
-        <input type="number" name = "c2">
-        <input type="number" name = "c3">
-        <input type="number" name = "c4"><br>
-        <input type="number" name = "d1">
-        <input type="number" name = "d2">
-        <input type="number" name = "d3">
-        <input type="number" name = "d4"><br>
-        <button type="submit" name="type_button" value="rank_4">Rank</button>
-        <button type="submit" name="type_button" value="determinant_4">determinant</button>
-    </form>
-    {% endif %}
+        {% if dimensi == '3' %}
+        <form action="/matrix" method = "POST" class="form-life">
+            <div class="wrapper-matrix3">
+                <input type="number" name = "a1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "a2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "a3" class="input" id="input-matrix"  step="any" required><br>
+                <input type="number" name = "b1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "b2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "b3" class="input" id="input-matrix"  step="any" required><br>
+                <input type="number" name = "c1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "c2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "c3" class="input" id="input-matrix"  step="any" required><br>
+            </div>
+            <div class="button-container">
+                <div class="button-wrapper">
+                    <button type="submit" name="type_button" value="rank_3" class="submit">Rank</button>
+                </div>
+                <div class="button-wrapper">
+                    <button type="submit" name="type_button" value="determinant_3" class="submit">determinant</button>
+                </div>
+            </div>
+        </form>
+        <form action="/matrix" method="POST" class="form-dimension">
+            <H4>Dimensions :</H4>
+            <button type="submit" name="type_button" value="dimension_2" class="button-demension">2 X 2</button>
+            <button type="submit" name="type_button" value="dimension_3" class="button-demension"id="dummy-button" disabledX>3 X 3</button>
+            <button type="submit" name="type_button" value="dimension_4" class="button-demension">4 X 4</button>
+        </form>
+                
+        <br> <a href="/" class="back">BACK</a>
+        {% endif %} 
     
-    {% if output_rank is not none %}
-    <p>Rank : {{output_rank}} </p>
-    {% endif %}
+        {% if dimensi == '4' %}
+        <form action="/matrix" method = "POST" class="form-life">
+            <div class="wrapper-matrix4">
+                <input type="number" name = "a1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "a2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "a3" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "a4" class="input" id="input-matrix"  step="any" required><br>
+                <input type="number" name = "b1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "b2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "b3" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "b4" class="input" id="input-matrix"  step="any" required><br>
+                <input type="number" name = "c1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "c2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "c3" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "c4" class="input" id="input-matrix"  step="any" required><br>
+                <input type="number" name = "d1" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "d2" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "d3" class="input" id="input-matrix"  step="any" required>
+                <input type="number" name = "d4" class="input" id="input-matrix"  step="any" required><br>
+            </div>
+            <div class="button-container">
+                <div class="button-wrapper">
+                    <button type="submit" name="type_button" value="rank_4" class="submit">Rank</button>
+                </div>
+                <div class="button-wrapper">
+                    <button type="submit" name="type_button" value="determinant_4" class="submit">determinant</button>
+                </div>
+            </div>
+        </form>
+        <form action="/matrix" method="POST" class="form-dimension">
+            <H4>Dimensions :</H4>
+            <button type="submit" name="type_button" value="dimension_2" class="button-demension">2 X 2</button>
+            <button type="submit" name="type_button" value="dimension_3" class="button-demension">3 X 3</button>
+            <button type="submit" name="type_button" value="dimension_4" class="button-demension" id="dummy-button" disabled>4 X 4</button>
+        </form>
+                
+        <br> <a href="/" class="back">BACK</a>
+        {% endif %}
 
-    {% if output_determinant is not none %}
-        <p>determinant {{output_determinant}} </p>
-    {% endif %}
-    
-    <form action="/matrix" method="POST" >
-        <H4>Dimensi Matrix</H4>
-        <button type="submit" name="type_button" value="dimention_2">2 X 2</button>
-        <button type="submit" name="type_button" value="dimention_3">3 X 3</button>
-        <button type="submit" name="type_button" value="dimention_4">4 X 4</button>
-    </form>
+        <script>
+            function htmls(p) {
+                if ('{{dimensi}}' == '2') {
+                    return `
+                <div class="container-swal-html">
+                    <p id="matrix">
+                        $$ 
+                        \\begin{bmatrix}
+                        {{a1}} & {{a2}}  \\\\
+                        {{b1}} & {{b2}}  
+                        \\end{bmatrix}
+                        $$
+                    </p>
+                    ${p} 
+                </div>`;
+                } else if ('{{dimensi}}' == '3') {
+                    return `
+                <div class="container-swal-html">
+                    <p id="matrix">
+                        $$ 
+                        \\begin{bmatrix}
+                        {{a1}} & {{a2}} & {{a3}} \\\\
+                        {{b1}} & {{b2}} & {{b3}} \\\\
+                        {{c1}} & {{c2}} & {{c3}}
+                        \\end{bmatrix}
+                        $$
+                    </p>
+                    ${p} 
+                </div>`;;
+                } else if ('{{dimensi}}' == '4'){
+                    return `
+                <div class="container-swal-html">
+                    <p id="matrix">
+                        $$ 
+                        \\begin{bmatrix}
+                        {{a1}} & {{a2}} & {{a3}} & {{a4}} \\\\
+                        {{b1}} & {{b2}} & {{b3}} & {{b4}} \\\\
+                        {{c1}} & {{c2}} & {{c3}} & {{c4}} \\\\
+                        {{d1}} & {{d2}} & {{d3}} & {{d4}}
+                        \\end{bmatrix}
+                        $$
+                    </p>
+                    ${p} 
+                </div>`;;
+                    };
+                }
+        </script>
+        
+        {% if output_rank is not none %}
+        <script>
+            Swal.fire({
+                html: htmls('<p class="text-swal-matrix">Rank : {{output_rank}}</p>'),
+                didOpen: () => {
+                        // Pastikan MathJax dirender setelah dialog muncul
+                    MathJax.typesetPromise().catch((err) => console.error(err));
+                },
+               iconHtml: '<i class="fa-regular fa-circle-check"></i>',
+               title:'Success',
+               confirmButtonText: "Ok",
+                   customClass: {
+                       confirmButton: "custom-confirm-button" 
+                   }
+             });
+             document.body.classList.remove('swal2-height-auto')
+           </script>
+           {% endif %}
+           
+           {% if output_determinant is not none %}
+           <script>
+               Swal.fire({
+                html: htmls('<p class="text-swal-matrix">Determinant : {{output_determinant}}</p>'),
+                  iconHtml: '<i class="fa-regular fa-circle-check"></i>',
+                  title:'Success',
+                  confirmButtonText: "Ok",
+                      customClass: {
+                          confirmButton: "custom-confirm-button" 
+                      }
+                });
+                document.body.classList.remove('swal2-height-auto')
+              </script>
+        {% endif %}
+       
+    </div> 
 
-    <br> <a href="/">BACK</a>
 </body>
 </html>

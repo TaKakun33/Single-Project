@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Suit</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suit</title>
     <link rel="stylesheet" href="static/style.css">
     <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="title">Suit Game</h1>
-        <h3>PILIH SALAH SATU!</h3>
+        <h3>Select One Option!</h3>
             <form action="/suit" method="POST" class="form-suit">
                     <button type = "submit" name="button_id" value="1" class="button-suit">
                         <i class="fa-solid fa-hand-peace icons-suit"></i>
@@ -30,13 +28,49 @@
                     </button> 
             </form>
 
-            {% if hasil is not none %}
-                <p>Player : {{player}} </p>
-                <p>Robot : {{robot}} </p>
-                <p>{{hasil}} </p>
+            {% if output is not none %}
+            <script>
+                function icons(a) {
+                    if (a == 'You win') {
+                        return '<i class="fa-solid fa-user"></i>';
+                    } else if (a == 'You Lose') {
+                        return '<i class="fa-solid fa-robot"></i>';
+                    } else {
+                        return '<i class="fa-solid fa-right-left"></i>';
+                      };
+                }
+
+                Swal.fire({
+                    title: "Are you sure?",
+                    iconHtml: '<i class="fa-regular fa-circle-question"></i>',
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "Cancel",
+                    customClass: {
+                        confirmButton: "custom-confirm-button",
+                        cancelButton: "custom-cancel-button"
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "{{output}}",
+                            html: '<p class="text-swal" id="swal-suit"> Player: {{output_player}}</p>  <p class="text-swal" id="swal-suit">Robot: {{output_robot}}</p> ',
+                            iconHtml: icons("{{output}}"),
+                            confirmButtonText: "Ok",
+                            customClass: {
+                                confirmButton: "custom-confirm-button" 
+                            }
+                        });
+                        document.body.classList.remove('swal2-height-auto')
+                    }
+                });
+                document.body.classList.remove('swal2-height-auto')
+            </script>
             {% endif %}
+
             
-        <br> <a href="/">BACK</a>
-    </div>    
+            <a href="/"class="back">BACK</a>
+        </div>    
+
 </body>
 </html>

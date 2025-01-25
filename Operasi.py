@@ -1,20 +1,38 @@
 # ==================================================Validate Input==================================================
-def validate_int(input_value):
-    try:
-        return int(input_value)
-    except (TypeError, ValueError):
-        return None 
+        
+def validate(input_str):
+    if input_str.isdigit():
+        return int(input_str)
+    else:
+        return float(input_str)
     
-def validate_float(input_value):
-    try:
-        return float(input_value)
-    except (TypeError, ValueError):
-        return None 
+def validate_age(input_value):
+    if int(input_value) in range(1,101):
+        return int(input_value)
+    else:
+        return False
+    
+def validate_tall(input_value):
+    if validate(input_value) in range(1,251):
+        return validate(input_value)
+    else:
+        return False
+    
+def validate_weight(input_value):
+    if validate(input_value) in range(1,151):
+        return validate(input_value)
+    else:
+        return False
 
+def validate_matrix(input_value):
+    try:
+        return validate(input_value)
+    except (TypeError, ValueError, AttributeError):
+        return 0 
 # ==================================================Suit Game==================================================
   
 def Suit_Game(Input_Player,Input_Robot): 
-    output = lambda player,robot : (player == 1 and robot == 3) or (player == 2 and robot == 1) or (player == 3 and robot == 2)
+    output = lambda player,robot : (player == '1' and robot == '3') or (player == '2' and robot == '1') or (player == '3' and robot == '2')
     
     if output(Input_Player,Input_Robot):
         return 'You win'
@@ -36,41 +54,41 @@ def convert_Suit(Player):
 def convensi_suhu (output,Input,degre):
   if Input == 'C':
       if output == 'Re':
-          return  (4/5) * degre
+          return  round(((4/5) * degre),3)
       elif output == 'F':
-          return  (9/5) * degre  +  32
+          return  round(((9/5) * degre  +  32),3)
       elif output == 'K':
-          return degre  +  273
+          return round((degre  +  273),3)
       else:
         return degre
       
   elif Input == 'Re':
       if output == 'C':
-          return  (5/4) * degre
+          return  round(((5/4) * degre),3)
       elif output == 'F':
-          return  (9/4) * degre  +  32
+          return  round(((9/4) * degre  +  32),3)
       elif output == 'K':
-          return  ((5/4) * degre) + 273
+          return  round((((5/4) * degre) + 273),3)
       else:
         return degre
       
   elif Input == 'F':
       if output == 'C':
-          return  (5/9) * (degre - 32)
+          return  (round((5/9) * (degre - 32)),3)
       elif output == 'Re':
-          return  (4/9) * (degre - 32)
+          return  round(((4/9) * (degre - 32)),3)
       elif output == 'K':
-          return  ((5/9) * (degre - 32)) + 273
+          return  round((((5/9) * (degre - 32)) + 273),3)
       else:
         return degre
       
   elif Input == 'K':
       if output == 'C':
-          return  (degre - 273)
+          return  round((degre - 273),3)
       elif output == 'Re':
-          return  (4/5) * (degre - 273)
+          return  round(((4/5) * (degre - 273)),3)
       elif output == 'F':
-          return  ((9/5) * (degre - 273)) + 32
+          return  round((((9/5) * (degre - 273)) + 32),3)
       else:
         return degre
 
@@ -125,15 +143,15 @@ def IMT(berat,tinggi):
 
 def Category(imt):
     if imt >= 27.1:
-        return "Sangat Gemuk"
+        return "Very Fat"
     elif imt >= 25.1:
-        return "Gemuk"
+        return "Fat"
     elif imt >= 18.5:
         return "Normal"
     elif imt >= 17:
-        return "Kurus"
+        return "Thin"
     else:
-        return "Sangat Kurus"
+        return "Very Thin"
     
 # ==================================================Binary Calculator==================================================
 def Decimal_to_Biner(x):

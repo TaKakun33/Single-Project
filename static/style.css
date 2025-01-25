@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Macondo&family=Playwrite+VN:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap');
+
 body{
     margin: auto;
     padding: 0;
     display: flex;
     place-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
+    background-color: #f0f0f0;
+    position: absolute;
+    /* overflow: hidden; */
 }
-
 
 .header{
     text-align: center;
@@ -16,18 +21,20 @@ body{
     margin: 20px;
 }
 
-.title{
-    font-family: "Silkscreen", serif;
-    font-size: 50px;
-    margin: 20px;
-}
-
 .title-home{
     font-size: 40px;
     font-family: "Playwrite VN", serif;
     margin: 0;
     padding: 0;
 }
+
+.title{
+    font-family: "Silkscreen", serif;
+    font-size: 50px;
+    line-height: 1.5;
+    margin: 0;
+}
+
 
 .made{
     margin: 5px;
@@ -46,9 +53,14 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    height: 70%;
+    width: 80vw;
+    height: 70vh;
     align-items: center;
+    border: 2px,solid,black;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);;
+    background-color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .wrapper{
@@ -65,6 +77,11 @@ a {
     display: flex;
 }
 
+.form-suhu{
+    display: grid;
+    place-items: center;
+}
+
 .button-suit{
     display: grid;
     place-items: center;
@@ -73,8 +90,7 @@ a {
     padding: 20px;
     width: 150px;
     height:90px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-    border: 2px,solid,black;
+    border: 1px solid #747474;
     background-color: white;
 }
 
@@ -96,7 +112,6 @@ a {
     padding: 32px;
     margin: 8px;
     text-align: center;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
     width: 200px;
     height: 80px;
 }
@@ -134,7 +149,309 @@ a {
     font-size: 24px;
 }
 
-@media screen and (max-width: 666px) {
+.select{
+    text-align: center;
+    appearance: none;
+    width: 100px;
+    height: 30px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.select:hover{
+    color: white;
+    background-color: black;
+}
+
+.select-gender{
+    text-align: center;
+    appearance: none;
+    width: 240px;
+    height: 30px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.select-gender:hover{
+    color: white;
+    background-color: black;
+}
+
+option{
+    background-color: black;
+    color: white;
+}
+
+.container-select{
+    display: flex;
+    margin: 10px;
+    
+}
+
+.wrapper-select{
+    width: 150px;
+    margin: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.wrapper-life{
+    width: 250px;
+    margin: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.input{
+    appearance: none;
+    width: 230px;
+    height: 30px;
+    border: 0.5px solid #747474;
+}
+
+#input-matrix{
+    width: 30px;
+    height: 30px;
+}
+
+.input:hover{
+    border: 1.5px solid black;
+}
+
+ /* Untuk browser berbasis Webkit (Chrome, Edge, Safari) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+     margin: 0;
+}
+
+ /* Untuk Firefox */
+input[type=number] {
+    appearance: textfield;
+}
+
+.submit{
+    width: 120px;
+    height: 35px;
+    font-size: 15px;
+    background-color: white;
+    border: 0.5px solid #747474;
+}
+
+.submit:hover{
+    background-color: black;
+    color: white;
+}
+.back{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 15px;
+    padding: 8px;
+    width: 80px;
+    height: 20px;
+    border: 1px,solid,black;
+    text-align: center;
+    font-family: "Roboto Condensed", serif;
+    background-color: black;
+    color: white;
+}
+
+.back:hover{
+    background-color: #222831;
+    color: white;
+}
+
+.container-life{
+    place-content: right;
+    margin-bottom: 20px;
+}
+
+.form-life{
+    display: grid;
+    justify-items: center;
+}
+
+
+.wrapper-matrix2{
+    width: 78px;
+    height: 62px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.wrapper-matrix3{
+    width: 118px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.wrapper-matrix4{
+    width: 160px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+}
+
+.button-wrapper{
+    margin: 8px;
+}
+
+.form-dimension{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 15px;
+    padding: 0;
+}
+
+h3{
+    font-size: 20px;
+}
+
+H4{
+    margin: 0;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.button-demension{
+    background-color: white;
+    border: 0.5px solid #747474;
+    width: 49px;
+    height: 23px;
+    margin: 3px;
+}
+
+.button-demension:hover{
+    background-color: black;
+    color: white;
+}
+
+#dummy-button{
+    background-color: black;
+    color: white;
+    border: black;
+
+}
+
+/* SWEET ALERT STYLE */
+
+.custom-confirm-button {
+    background-color:black; 
+    color: white;            
+    border: none;            
+    box-shadow: none;
+    font-size: 16px;        
+    padding: 10px 20px;      
+    border-radius: 5px;      
+    cursor: pointer;         
+}
+
+.custom-confirm-button:hover {
+    background-color: #222831; 
+}
+
+
+.custom-cancel-button {
+    background-color: white;
+    color: black; 
+    border: 0.5px solid #747474;        
+    font-size: 16px;         
+    padding: 10px 20px;       
+    border-radius: 5px;       
+    cursor: pointer;          
+}
+
+.custom-cancel-button:hover {
+    background-color: black;
+    color: white;
+}
+.swal2-confirm {
+    box-shadow: none !important;
+}
+
+.swal2-confirm:focus {
+    box-shadow: none !important;
+}
+
+.swal2-cancel {
+    box-shadow: none !important;
+}
+
+.swal2-cancel:focus {
+    box-shadow: none !important;
+}
+
+.swal2-container {
+    z-index: 9999 !important; 
+}
+
+.swal2-html-container{
+    display: flex !important;
+}
+.text-swal{
+    display: flex;
+    width: auto;
+    font-size: 1.125em;
+    margin: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: inherit;
+}
+
+.swal2-title{
+    font-size: 40px !important;
+    padding: .5em 1em 0 !important;
+}
+.swal2-icon{
+    border: none !important;
+}
+
+.swal2-icon-content {
+    font-size: 6em !important;
+}
+.right-line{
+    font-size: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 2px;
+}
+
+#temp{
+    margin: 0;
+}
+
+.container-swal-html{
+    display: grid;
+    place-items: center;
+}
+
+#down-arrow{
+    font-size: 25px;
+    margin: 10px;
+}
+
+.text-swal-life{
+    margin: 8px;
+}
+
+#matrix{
+    margin: 0;
+    font-size: 25px;
+}
+
+.text-swal-matrix{
+    margin-top: 8px;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 835px) {
     .header{
         height: 10px;
     }
@@ -142,7 +459,7 @@ a {
         font-size: 35px;
     }
     h3{
-        font-size: 15px;
+        font-size: 17px;
     }
     .title-home{
         font-size: 25px;
@@ -154,6 +471,12 @@ a {
         height: 70px;
         width: 80px;
         padding: 15px;
+    }
+    .container{
+        width: 100vw;
+        margin: 0;
+        border: none;
+        height: 100%;
     }
     .wrapper{
         margin-top: 5px;
@@ -170,5 +493,56 @@ a {
     }
     .icons-suit{
         font-size: 17px;
+    }
+    .select{
+        width: 80px;
+        height: 20px;
+        font-size: 12px;
+    }
+    .submit{
+        width: 90px;
+        height: 25px;
+        font-size: 13px;
+    }
+    .back{
+        margin: 30px;
+        width: 50px;
+        height: 15px;
+        font-size: 13px;
+    }
+    .wrapper-select{
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .form-dimension{
+        margin: 30px;
+    }
+    H4{
+        font-size: 15px;
+        height: 22px;
+        margin: 0;
+        padding: 5px;
+        margin-right: 3px;
+        text-align: center;
+    }
+    .button-demension{
+        margin: 3px;
+        width: 45px;
+        height: 22px;
+        font-size: 12px;
+    }
+    .form-dimension{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .text-swal {
+        font-size: 1.1em
+    }
+    .right-line {
+        font-size: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
